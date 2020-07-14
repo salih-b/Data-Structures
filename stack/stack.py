@@ -12,14 +12,41 @@ return elements in Last In First Out order.
 """
 class Stack:
     def __init__(self):
-        self.size = 0
-        # self.storage = ?
+        self.storage = []
+        self.size = len(self.storage)
 
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def push(self, value):
-        pass
+        if self.size == 0:
+            self.storage.append(value)
+        else:
+            self.storage.reverse()
+            self.storage.append(value)
+            self.storage.reverse()
 
     def pop(self):
-        pass
+        if len(self.storage) == 0:
+            print('storage is empty fam')
+        else: 
+            return self.storage.pop()
+
+
+
+# if True == True:
+#     test = Stack()
+#     an0= test.__len__()
+#     test.push(2)
+#     an1= test.__len__()
+#     test.push(45)
+#     an2= len(test.storage)
+#     re1 = test.pop()
+#     test.push(5)
+#     test.push(4)
+#     test.push(3)
+#     test.push(2)
+#     test.push(1)
+#     order = test.storage
+#     re2 = test.pop()
+#     print(f"TESTING: \n expect zero: {an0} \n expect one: {an1} \n expect two: {an2} \n removing test returning forty-five: {re1} \n Testing order: {order} \n emoving test returning the one: {re2}")
