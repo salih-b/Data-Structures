@@ -30,29 +30,31 @@ Stretch: What if you could only use instances of your Stack class to implement t
 #         else: 
 #             return self.storage.pop(0)
 
-from stingly_linked_list import LinkedList
+from sll import LinkedList
 class Queue:
     def __init__(self):
         self.size = 0
         self.storage = LinkedList()
     
     def __len__(self):
-        return len(self.storage)
+        return self.size
 
     def enqueue(self, value):
         self.storage.add_to_tail(value)
+        self.size += 1
 
     def dequeue(self):
-        # if len(self.storage) == 0:
-        #     print('storage is empty fam')
-        # else: 
-        return self.storage.remove_head()
+        if self.size == 0:
+            print('storage is empty fam')
+        else: 
+            self.size -= 1
+            return self.storage.remove_head()
 
-# if True == True:
-#     test = Queue()
-#     test.enqueue(2)
-#     test.enqueue(45)
-#     an1= test.__len__()
-#     re1 = test.dequeue()
-#     an2 = test.__len__()
-#     print(f"TESTING: \n answer one: {an1} \n answer two: {an2} \n removing test returning two: {re1}")
+if True == True:
+    test = Queue()
+    test.enqueue(2)
+    test.enqueue(45)
+    an1= test.__len__()
+    re1 = test.dequeue()
+    an2 = test.__len__()
+    print(f"TESTING: \n answer one: {an1} \n answer two: {an2} \n removing test returning two: {re1}")

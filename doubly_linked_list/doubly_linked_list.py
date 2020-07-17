@@ -130,7 +130,12 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
-        pass
+        if node is head and self.tail is node:
+            self.head = None
+            self.tail = None
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        node = None
 
     """
     Finds and returns the maximum value of all the nodes 

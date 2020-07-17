@@ -27,42 +27,44 @@ return elements in Last In First Out order.
 #         else: 
 #             return self.storage.pop()
 
-from singly_linked_list import LinkedList
+from sll import LinkedList
 
 class Stack:
     def __init__(self):
         self.storage = LinkedList()
-        self.size = len(self.storage)
+        self.size = 0
 
     def __len__(self):
-        return len(self.storage)
+        return self.size
 
     def push(self, value):
         self.storage.add_to_tail(value)
+        self.size += 1
 
     def pop(self):
-        # if len(self.storage) == 0:
-        #     print('storage is empty fam')
-        # else: 
-        return self.storage.remove_tail()
+        if self.size == 0:
+            print('storage is empty fam')
+        else: 
+            self.size -= 1
+            return self.storage.remove_tail()
 
 
 
 
 
-# if True == True:
-#     test = Stack()
-#     an0= test.__len__()
-#     test.push(2)
-#     an1= test.__len__()
-#     test.push(45)
-#     an2= len(test.storage)
-#     re1 = test.pop()
-#     test.push(5)
-#     test.push(4)
-#     test.push(3)
-#     test.push(2)
-#     test.push(1)
-#     order = test.storage
-#     re2 = test.pop()
-#     print(f"TESTING: \n expect zero: {an0} \n expect one: {an1} \n expect two: {an2} \n removing test returning forty-five: {re1} \n Testing order: {order} \n emoving test returning the one: {re2}")
+if True == True:
+    test = Stack()
+    an0= test.__len__()
+    test.push(2)
+    an1= test.__len__()
+    test.push(45)
+    an2= test.__len__()
+    re1 = test.pop()
+    test.push(5)
+    test.push(4)
+    test.push(3)
+    test.push(2)
+    test.push(1)
+    order = test.storage
+    re2 = test.pop()
+    print(f"TESTING: \n expect zero: {an0} \n expect one: {an1} \n expect two: {an2} \n removing test returning forty-five: {re1} \n Testing order: {order} \n emoving test returning the one: {re2}")
