@@ -12,6 +12,11 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None 
+    #     self.length = 0
+
+    # def __len__(self):
+    #     return self.length
+
     def add_to_tail(self, value):
         # 1. create the Node from the value 
         new_node = Node(value)
